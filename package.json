@@ -2,8 +2,13 @@
   "name": "Electoral-Bonds",
   "version": "1.0.0",
   "main": "index.js",
+  "private": true,
   "repository": "https://github.com/joemiltonm/Electoral-Bonds.git",
   "author": "joemiltonm <m.joemilton@gmail.com>",
   "license": "MIT",
-  "workspaces":["/packages*"]
+  "dependencies": {
+    "knex": "^3.1.0",
+    "pg": "^8.11.5"
+  },
+  "workspaces": ["packages/*"]
 }
