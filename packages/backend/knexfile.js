@@ -20,6 +20,9 @@ const development = {
     migrations: {
       directory: './database/migrations',
       tableName: 'knex_migrations'
+    },
+    seeds: {
+      directory: './database/seeds'
     }
   }
 };
