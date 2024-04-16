@@ -4,12 +4,19 @@
   "main": "index.js",
   "license": "MIT",
   "type": "module",
+  "nodemonConfig":{
+    "watch":["."]
+  },
   "dependencies": {
     "csv-parser": "^3.0.0",
-    "express": "^4.19.2",
-    "eb_data":"^1.0.0"
+    "eb_data": "^1.0.0",
+    "express": "^4.19.2"
   },
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
   }
 }
