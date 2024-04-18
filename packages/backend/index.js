@@ -8,6 +8,7 @@ const app = express()
 
 export const db = knex(development['development']);
 
+app.use(express.json());
 app.use('/staticData', staticData);
 
 app.get('/', async (req, res) => {
