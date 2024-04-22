@@ -7,7 +7,8 @@ function App() {
   console.log(theme)
   return (
     <>
-        <Button variant="filled">Button</Button>
+      <Button size="compact-sm" leftSection={<div>joe</div>} rightSection={<a href='https://www.google.com'>google</a>}
+        variant="filled" color={theme.colors.teal[9]}>Button</Button>
     </>
   );
 }
