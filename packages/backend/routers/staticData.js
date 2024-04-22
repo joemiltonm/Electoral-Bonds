@@ -21,7 +21,6 @@ staticData.get('/total/:party', async (req, res) => {
         groupBy('purchaser').
         orderBy('sum', 'desc')
 
-
     res.status(200).send(donors)
 })
 
@@ -65,8 +64,8 @@ staticData.post('/queryBuilder', async (req, res) => {
 staticData.get('/branch', async (req, res) => {
     const results = await db('combined_table').select('*')
     const final = await db('combined_table').select('Political_Party','purchaser').
-        sum('Denominations').where('state', '=', 'Kerala').groupBy('Political_Party', 'purchaser')
+        sum('Denominations').where('state', '=', 'Delhi').groupBy('Political_Party', 'purchaser')
     console.log(final)
     res.status(200).send(final)
-})
+})  
 
