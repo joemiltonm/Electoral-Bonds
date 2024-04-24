@@ -6,7 +6,7 @@ import Rightpane from "./components/Rightpane";
 export default function Routing() {
 
     return (
-        <AppShell navbar={{ width: 250}} header={{ height: 45 }} aside={{ width: 400 }}>
+        <AppShell navbar={{ width: 250}} header={{ height: 45 }} aside={{ width: 350 }}>
 
             <AppShell.Header zIndex='10'>
                 Header

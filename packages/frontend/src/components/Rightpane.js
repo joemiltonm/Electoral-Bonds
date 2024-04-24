@@ -1,6 +1,9 @@
-import React, { useEffect, useState } from 'react'
-import ReactECharts from 'echarts-for-react';
-import { baseOption } from '../utils/baseOption';
+import React from 'react'
+import { useState, useEffect } from 'react';
+import EChartsReact from 'echarts-for-react';
+import { barBaseOption } from '../utils/barBaseoptions';
+
+
 
 export default function Rightpane() {
 
@@ -8,27 +11,32 @@ export default function Rightpane() {
 
     useEffect(() => {
 
+        setOptions(barBaseOption)
+
         fetch("http://localhost:3001/staticData/total", {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
             }
         }).then(res => res.json()).then(data => {
-            console.log(data)
+            const name = data.map(item => item.name) 
+            console.log("party names", name)
+            const value = data.map(item => item.value)  
             setOptions({
-                ...baseOption, series: [{
-                    ...baseOption.series[0], data: data.slice(0,5)
+                ...barBaseOption,
+                yAxis: { ...barBaseOption, data: name },
+                series: [{
+                    ...barBaseOption.series[0], data: value
                 }]
             })
-        })},[])
+        })
+    },[])
+
 
     return (
-        <>  
-            <div style={{ marginTop: 8, marginLeft: 10 }}>
-                {options && <ReactECharts option={options} />}
-            </div>
-        
-        </>
+        <div style={{height:'1200px', width : 400, marginLeft:25}}>
+            <EChartsReact style={{height:'800px'}} option={options}/>                    
+        </div>
     )
 
 }
