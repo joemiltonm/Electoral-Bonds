@@ -19,16 +19,14 @@ export const barBaseOption = {
     formatter: function (params) {
             // params is an array if trigger is 'axis', or a single object if trigger is 'item'
         let tip = '';
-        console.log("params from options", params)
             params.forEach(function (item) {
                 // Assuming value is a number and formatted as needed
                 if (item.value.toFixed(2) > 1) {
-                    tip += item.marker + item.name + ': ' + item.value.toFixed(2) + ' crore<br/>'
+                    tip += item.marker + item.name + ': ' + item.value.toFixed(2) + ' crores<br/>'
                 } else {
                     tip += item.marker + item.name + ': ' + (item.value*100).toFixed(2) + ' lakhs<br/'
                 }
             });
-        console.log("tip", tip)
             return tip;
         },
     textStyle: {

@@ -20,7 +20,6 @@ export default function Rightpane() {
             }
         }).then(res => res.json()).then(data => {
             const name = data.map(item => item.name) 
-            console.log("party names", name)
             const value = data.map(item => item.value)  
             setOptions({
                 ...barBaseOption,
