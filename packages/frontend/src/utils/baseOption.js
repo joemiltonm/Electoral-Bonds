@@ -1,8 +1,9 @@
 export let baseOption = {
             title: {
-                text: 'Top 10 Receivers',
-                left: 'center',
-                top: '2',
+                text: 'Proportion of Funds Received',
+                // left: 'center',
+                top: '0',
+                right:'100'
             },
             legend: {
                 orient: 'vertical',
@@ -12,10 +13,11 @@ export let baseOption = {
                     width: '200',
                     overflow: 'truncate',
                 }
-            },
+    },
             series: [
                 {
                 name: 'Access From',
+                center: ['60%', '55%'],
                 type: 'pie',
                 radius: '80%',
                 emphasis: {
@@ -32,7 +34,7 @@ export let baseOption = {
                         show:false,
                     },
                 }
-    ],
+                ],
             tooltip: {
                     trigger: 'item', // Can be 'item', 'axis', or 'none'
                 formatter: function (params) {

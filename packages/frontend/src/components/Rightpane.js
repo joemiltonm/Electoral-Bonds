@@ -19,8 +19,9 @@ export default function Rightpane() {
                 "Content-Type": "application/json",
             }
         }).then(res => res.json()).then(data => {
-            const name = data.map(item => item.name) 
-            const value = data.map(item => item.value)  
+            const { formattedData } = data;
+            const name = formattedData.map(item => item.name) 
+            const value = formattedData.map(item => item.value)  
             setOptions({
                 ...barBaseOption,
                 yAxis: { ...barBaseOption, data: name },
@@ -37,5 +38,4 @@ export default function Rightpane() {
             <EChartsReact style={{height:'800px'}} option={options}/>                    
         </div>
     )
-
 }

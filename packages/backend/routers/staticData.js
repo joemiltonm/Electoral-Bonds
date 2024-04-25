@@ -26,7 +26,13 @@ staticData.get('/total', async (req, res) => {
     //     groupBy('purchaser').
     //     orderBy('sum', 'desc')
     //console.log(formattedData)
-    res.status(200).send(formattedData)
+    const final = {
+        formattedData,
+        total,
+        party,
+        purchaser
+    }
+    res.status(200).json(final)
 })
 
 
@@ -73,4 +79,3 @@ staticData.get('/branch', async (req, res) => {
     console.log(final)
     res.status(200).send(final)
 })  
-
