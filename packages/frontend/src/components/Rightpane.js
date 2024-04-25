@@ -34,7 +34,7 @@ export default function Rightpane() {
 
 
     return (
-        <div style={{height:'1200px', width : 400, marginLeft:25}}>
+        <div style={{height:'1200px', width : 380, marginLeft:20}}>
             <EChartsReact style={{height:'800px'}} option={options}/>                    
         </div>
     )

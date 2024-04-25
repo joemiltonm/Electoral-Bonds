@@ -2,18 +2,19 @@ import React from "react";
 import Home from "./pages/Home";
 import { AppShell } from "@mantine/core";
 import Rightpane from "./components/Rightpane";
+import Leftpane from "./components/Leftpane";
 
 export default function Routing() {
 
     return (
-        <AppShell navbar={{ width: 250}} header={{ height: 45 }} aside={{ width: 350 }}>
+        <AppShell withBorder={true} navbar={{ width: 300}} header={{ height: 45 }} aside={{ width: 320 }}>
 
-            <AppShell.Header zIndex='10'>
+            <AppShell.Header zIndex='10' >
                 Header
             </AppShell.Header>
 
             <AppShell.Navbar>
-                navbar
+                <Leftpane/>
             </AppShell.Navbar>
          
             <AppShell.Main >

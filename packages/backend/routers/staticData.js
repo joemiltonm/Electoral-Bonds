@@ -13,9 +13,14 @@ staticData.get('/total', async (req, res) => {
     const [party] = await db('bonds').countDistinct('Political_Party')
     const [purchaser] = await db('bonds').countDistinct('purchaser')
     const partyProportion = await db('bonds').select('Political_Party as name').sum({ value: 'Denominations' }).groupBy('Political_Party').orderBy('value', 'desc')
-    const purchaseProportion = await db('bonds').select('purchaser').sum({ total_funds: 'Denominations' }).groupBy('purchaser').orderBy('total_funds', 'desc')
+    const purchaseProportion = await db('bonds').select('purchaser as name').sum({ value: 'Denominations' }).groupBy('purchaser').orderBy('value', 'desc')
 
     const formattedData = partyProportion.map(item => ({
+        name: item.name,
+        value: (parseInt(item.value, 10)/10000000)
+    }));
+
+    const formattedDataPurchase = purchaseProportion.map(item => ({
         name: item.name,
         value: (parseInt(item.value, 10)/10000000)
     }));
@@ -25,12 +30,13 @@ staticData.get('/total', async (req, res) => {
     //     sum('Denominations').
     //     groupBy('purchaser').
     //     orderBy('sum', 'desc')
-    //console.log(formattedData)
+
     const final = {
         formattedData,
         total,
         party,
-        purchaser
+        purchaser,
+        formattedDataPurchase
     }
     res.status(200).json(final)
 })

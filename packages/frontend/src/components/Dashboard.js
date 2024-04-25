@@ -26,7 +26,7 @@ function Dashboard() {
             const value = last.reduce((a, b) => a + b.value, 0)
             console.log("top", last)
 
-            top.push({name:"OTHERS", value, itemStyle: { color: '#868e96' } })
+            top.push({name:"OTHERS COMBINED", value, itemStyle: { color: '#868e96' } })
             setOptions({
                 ...baseOption, series: [{
                     ...baseOption.series[0], data: top
@@ -48,7 +48,7 @@ function Dashboard() {
                     
                 </div>
                 <Card>
-                    <Paper shadow="md" radius="lg" withBorder p="xl" style={{ backgroundColor: '#f8f9fa', width: '420px', marginLeft:0 }}>
+                    <Paper shadow="md" radius="lg" withBorder p="xl" style={{ backgroundColor: '#f8f9fa', width: '420px', marginLeft:0, marginTop:50}}>
                        <Text style={{ display: 'block', width:'400px', marginBottom:'8px' }}>
                             Total Bond Amount = <span style={{ marginRight: '0.25em' }}>₹</span>
                                 <span><NumberFormatter 
