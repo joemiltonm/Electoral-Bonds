@@ -3,7 +3,8 @@ import React from 'react'
 import { useState, useEffect } from 'react';
 import { baseOption } from '../utils/baseOption';
 import ReactECharts from 'echarts-for-react';
-import { Flex, Paper, Card, Text, NumberFormatter } from '@mantine/core';
+import { Flex, Paper, Text, NumberFormatter } from '@mantine/core';
+import FyChart from './FyChart';
 
 function Dashboard() {
     const [options, setOptions] = useState(baseOption);
@@ -47,8 +48,8 @@ function Dashboard() {
                     </Paper>
                     
                 </div>
-                <Card>
-                    <Paper shadow="md" radius="lg" withBorder p="xl" style={{ backgroundColor: '#f8f9fa', width: '420px', marginLeft:0, marginTop:50}}>
+                {/* <Card> */}
+                    <Paper shadow="md" radius="lg" withBorder p="xl" style={{ backgroundColor: '#f8f9fa', width: '420px', height:'200px', marginLeft:8, marginTop:50}}>
                        <Text style={{ display: 'block', width:'400px', marginBottom:'8px' }}>
                             Total Bond Amount = <span style={{ marginRight: '0.25em' }}>₹</span>
                                 <span><NumberFormatter 
@@ -64,8 +65,15 @@ function Dashboard() {
                         <Text style={{marginBottom:'8px'}}>Total Number of Political Party = {party}</Text>
                         <Text>Total Number of Purchasers = {purchaser}</Text>
                     </Paper>
-                </Card>
+                {/* </Card> */}
             </Flex>
+            <Paper shadow="md" radius="lg" withBorder p="xl" style={{
+                backgroundColor: '#f8f9fa',
+                height: 350, width: 700, marginLeft: 10, marginTop: 10,
+                paddingTop:5
+            }}>
+                <FyChart />
+            </Paper>
         </>
     )
 }

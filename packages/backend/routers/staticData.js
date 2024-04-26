@@ -85,3 +85,33 @@ staticData.get('/branch', async (req, res) => {
     console.log(final)
     res.status(200).send(final)
 })  
+
+const fiscalYears = [
+    { name: 'FY20', startDate: '2019-04-01', endDate: '2020-03-31' },
+    { name: 'FY21', startDate: '2020-04-01', endDate: '2021-03-31' },
+    { name: 'FY22', startDate: '2021-04-01', endDate: '2022-03-31' },
+    { name: 'FY23', startDate: '2022-04-01', endDate: '2023-03-31' },
+    { name: 'FY24', startDate: '2023-04-01', endDate: '2024-03-31' }
+];
+
+staticData.get('/state', async (req, res) => {
+    const statefinal = await db('combined_table').select('state').
+        sum('Denominations').groupBy('state')
+
+    const results = await Promise.all(fiscalYears.map(fy =>
+      db('combined_table')
+        .select(db.raw(`'${fy.name}' as name`))
+        .sum({ value: 'Denominations' })
+        .whereBetween('date_of_purchase', [fy.startDate, fy.endDate])
+    ));
+
+    let obj = []
+
+    const final = results.map((fy, index) => {
+        obj.push(fy[0])
+    })
+    console.log(obj)
+    // Send the results as JSON
+    res.send(obj);
+
+})

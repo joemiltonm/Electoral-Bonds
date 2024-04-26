@@ -2,7 +2,7 @@
 
 export const barBaseOption = {
     title: {
-        text: 'Total Funds Received',  // Your title text here
+        text: 'Fund Received',  // Your title text here
         textStyle: {
             fontWeight: 'bold', // Makes the title text bold
             fontSize: 20,        // Adjusts the title font size

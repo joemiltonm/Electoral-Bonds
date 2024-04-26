@@ -23,6 +23,10 @@ export default function Leftpane() {
             const value = formattedDataPurchase.map(item => item.value)  
             setOptions({
                 ...barBaseOption,
+                title: {
+                    ...barBaseOption.title,
+                    text: 'Top Donors',
+                },
                 yAxis: { ...barBaseOption.yAxis, data: name.slice(0, 19) },
                 grid: {
                     right: '6%' 
